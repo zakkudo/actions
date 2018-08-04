@@ -1,6 +1,6 @@
 {
   "name": "@zakkudo/actions",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Make working with redux actions enjoyable.",
   "keywords": [
     "redux"
@@ -25,7 +25,7 @@
   "dependencies": {},
   "scripts": {
     "build": "scripts/build.sh",
-    "public": "scripts/publish.sh",
+    "deploy": "scripts/deploy.sh",
     "test": "scripts/test.sh",
     "cover": "scripts/cover.sh",
     "lint": "scripts/lint.sh",
