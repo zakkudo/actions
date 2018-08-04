@@ -1,0 +1,28 @@
+{
+  "name": "@zakkudo/actions",
+  "version": "0.0.1",
+  "description": "Helper class for primarily generating action types from action type creators for redux",
+  "keywords": [
+    "redux"
+  ],
+  "main": "build/index.js",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.56",
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/preset-env": "^7.0.0-beta.56",
+    "eslint": "^4.19.1",
+    "eslint-plugin-jasmine": "^2.10.1",
+    "eslint-plugin-node": "^7.0.1",
+    "jest": "^23.4.2",
+    "jest-cli": "^23.4.2"
+  },
+  "dependencies": {},
+  "scripts": {
+    "build": "scripts/build.sh",
+    "public": "scripts/publish.sh",
+    "test": "scripts/test.sh",
+    "cover": "scripts/cover.sh",
+    "lint": "scripts/lint.sh"
+  }
+}
