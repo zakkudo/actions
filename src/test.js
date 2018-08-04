@@ -1,4 +1,4 @@
-import Actions from './Actions';
+import Actions from '.';
 
 describe('lib/Actions', () => {
     it('generates the type name when passed only a action creator', () => {
