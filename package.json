@@ -1,6 +1,6 @@
 {
   "name": "@zakkudo/actions",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Helper class for primarily generating action types from action type creators for redux",
   "keywords": [
     "redux"
