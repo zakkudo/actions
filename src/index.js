@@ -113,7 +113,23 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
 /**
  * Helper class to generate enum of action types that are
  * property namespaced for a set of action generators.
+ *
+ * Install with
+ *
+ * ```
+ * yarn add @zakkudo/actions
+ * ```
+ *
+ * Why use this?
+ *
+ * - Automates creation of the action types by sniffing the action creators
+ * - Automatically generates the success/failure actions for side effect actions
+ * - Changing the action type strings after generation correctly updates the keys for the action creators
+ * - All methods are prefixed the namespace on contruction
+ *
  * @example
+ *    import Actions from '@zakkudo/actions';
+ *
  *    const actions = new Actions({
  *        setValue(value) {
  *            return {
@@ -145,7 +161,7 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
  *
  *    actions.valueRequestFailed(response);
  *    actions.VALUE_REQUEST_FAILED // @APPLICATOIN/VALUE_REQUEST_FAILED
- * @module lib/Actions
+ * @module Actions
  */
 export default class Actions {
     constructor(actionCreators, namespace='') {
