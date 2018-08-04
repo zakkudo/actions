@@ -6,7 +6,7 @@ property namespaced for a set of action generators.
 
 Install with
 
-```
+```sh
 yarn add @zakkudo/actions
 ```
 

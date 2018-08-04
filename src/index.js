@@ -116,7 +116,7 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
  *
  * Install with
  *
- * ```
+ * ```sh
  * yarn add @zakkudo/actions
  * ```
  *
