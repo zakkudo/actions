@@ -128,39 +128,39 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
  * - All methods are prefixed the namespace on contruction
  *
  * @example
- *    import Actions from '@zakkudo/actions';
+ * import Actions from '@zakkudo/actions';
  *
- *    const actions = new Actions({
- *        setValue(value) {
- *            return {
- *                type: 'SET_VALUE',
- *                value,
- *            };
- *        },
- *        requestValue(request) {
- *            return {
- *                type: 'REQUEST_VALUE',
- *                request,
- *            };
- *        }
- *    }, 'APPLICATION');
+ * const actions = new Actions({
+ *     setValue(value) {
+ *         return {
+ *             type: 'SET_VALUE',
+ *             value,
+ *         };
+ *     },
+ *     requestValue(request) {
+ *         return {
+ *             type: 'REQUEST_VALUE',
+ *             request,
+ *         };
+ *     }
+ * }, 'APPLICATION');
  *
- *    // Automatically generates the action type strings with a namespace
+ * // Automatically generates the action type strings with a namespace
  *
- *    actions.setValue(3); // {type: "@APPLICATION/SET_VALUE", value: 3}
- *    actions.SET_VALUE // @APPLICATION/SET_VALUE
+ * actions.setValue(3); // {type: "@APPLICATION/SET_VALUE", value: 3}
+ * actions.SET_VALUE // @APPLICATION/SET_VALUE
  *
- *    actions.requestValue(() => fetch('/data'));
- *    actions.REQUEST_VALUE // @APPLICATOIN/REQUEST_VALUE
+ * actions.requestValue(() => fetch('/data'));
+ * actions.REQUEST_VALUE // @APPLICATOIN/REQUEST_VALUE
  *
- *    // The below are also automatically generated from requestValue() because
- *    // it's an async action
+ * // The below are also automatically generated from requestValue() because
+ * // it's an async action
  *
- *    actions.valueRequestSucceeded(response);
- *    actions.VALUE_REQUEST_SUCCEEDED // @APPLICATOIN/VALUE_REQUEST_SUCCEEDED
+ * actions.valueRequestSucceeded(response);
+ * actions.VALUE_REQUEST_SUCCEEDED // @APPLICATOIN/VALUE_REQUEST_SUCCEEDED
  *
- *    actions.valueRequestFailed(response);
- *    actions.VALUE_REQUEST_FAILED // @APPLICATOIN/VALUE_REQUEST_FAILED
+ * actions.valueRequestFailed(response);
+ * actions.VALUE_REQUEST_FAILED // @APPLICATOIN/VALUE_REQUEST_FAILED
  * @module Actions
  */
 export default class Actions {
