@@ -111,21 +111,22 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
 }
 
 /**
- * Helper class to generate enum of action types that are
- * property namespaced for a set of action generators.
- *
- * Install with
- *
- * ```sh
- * yarn add @zakkudo/actions
- * ```
+ * Helper class to make working with redux actions enjoyable. The code is readable,
+ * with minimal surprises.
  *
  * Why use this?
  *
+ * - Consistancy with simplicity
  * - Automates creation of the action types by sniffing the action creators
- * - Automatically generates the success/failure actions for side effect actions
- * - Changing the action type strings after generation correctly updates the keys for the action creators
- * - All methods are prefixed the namespace on contruction
+ * - It works how you expect it to.  Changing a action type will also update action creator output.
+ * - Automatically generates the success/failure actions for side effect actions (which start with request in the name)
+ * - All action type strings are prefixed the namespace on contruction
+ *
+ * Install with:
+ *
+ * ```console
+ * yarn add @zakkudo/actions
+ * ```
  *
  * @example
  * import Actions from '@zakkudo/actions';
@@ -151,16 +152,21 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
  * actions.SET_VALUE // @APPLICATION/SET_VALUE
  *
  * actions.requestValue(() => fetch('/data'));
- * actions.REQUEST_VALUE // @APPLICATOIN/REQUEST_VALUE
+ * actions.REQUEST_VALUE // @APPLICATION/REQUEST_VALUE
  *
  * // The below are also automatically generated from requestValue() because
  * // it's an async action
  *
  * actions.valueRequestSucceeded(response);
- * actions.VALUE_REQUEST_SUCCEEDED // @APPLICATOIN/VALUE_REQUEST_SUCCEEDED
+ * actions.VALUE_REQUEST_SUCCEEDED // @APPLICATION/VALUE_REQUEST_SUCCEEDED
  *
  * actions.valueRequestFailed(response);
- * actions.VALUE_REQUEST_FAILED // @APPLICATOIN/VALUE_REQUEST_FAILED
+ * actions.VALUE_REQUEST_FAILED // @APPLICATION/VALUE_REQUEST_FAILED
+ *
+ * Object.keys(actions) // ['setValue', 'SET_VALUE',
+ *                      //  'requestValue', 'REQUEST_VALUE',
+ *                      //  'valueRequestSucceeded', 'VALUE_REQUEST_SUCCEEDED",
+ *                      //  'valueRequestFailed', 'VALUE_REQUEST_FAILED']
  * @module Actions
  */
 export default class Actions {
