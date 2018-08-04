@@ -1,6 +1,12 @@
 # Actions
 Helper class for primarily generating action types from action type creators
 
+Install with
+
+```
+yarn add @zakkudo/actions
+```
+
 Why use this?
 
 - Automates creation of the action types by sniffing the action creators
@@ -9,6 +15,8 @@ Why use this?
 - All methods are prefixed the namespace on contruction
 
 ```js
+import Actions from '@zakkudo/actions';
+
 const actions = new Actions({
     setValue(value) {
         return {
