@@ -1,12 +1,14 @@
 {
   "name": "@zakkudo/actions",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Make working with redux actions enjoyable.",
   "keywords": [
     "redux"
   ],
   "main": "build/index.js",
-  "files": ["build/**/*"],
+  "files": [
+    "build/**/*"
+  ],
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.56",
