@@ -111,7 +111,7 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
 }
 
 /**
- * Helper class to make working with redux actions enjoyable. The code is readable,
+ * Helper class to make working with [Redux]{@link https://redux.js.org/} actions enjoyable. The code is readable,
  * with minimal surprises.
  *
  * Why use this?
@@ -119,7 +119,9 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
  * - Consistancy with simplicity
  * - Automates creation of the action types by sniffing the action creators
  * - It works how you expect it to.  Changing a action type will also update action creator output.
- * - Automatically generates the success/failure actions for side effect actions (which start with request in the name)
+ * - Automatically generates the success/failure actions for side effect actions
+ *   (For libraries like [Redux-Thunk]{@link https://github.com/reduxjs/redux-thunk},
+ *   [Redux-Saga]{@link https://redux-saga.js.org/}, [Redux-Observable]{@link https://redux-observable.js.org/}...)
  * - All action type strings are prefixed the namespace on contruction
  *
  * Install with:

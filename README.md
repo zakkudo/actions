@@ -1,7 +1,7 @@
 <a name="module_Actions"></a>
 
 ## Actions
-Helper class to make working with redux actions enjoyable. The code is readable,
+Helper class to make working with [Redux](https://redux.js.org/) actions enjoyable. The code is readable,
 with minimal surprises.
 
 Why use this?
@@ -9,7 +9,9 @@ Why use this?
 - Consistancy with simplicity
 - Automates creation of the action types by sniffing the action creators
 - It works how you expect it to.  Changing a action type will also update action creator output.
-- Automatically generates the success/failure actions for side effect actions (which start with request in the name)
+- Automatically generates the success/failure actions for side effect actions
+  (For libraries like [Redux-Thunk](https://github.com/reduxjs/redux-thunk),
+  [Redux-Saga](https://redux-saga.js.org/), [Redux-Observable](https://redux-observable.js.org/)...)
 - All action type strings are prefixed the namespace on contruction
 
 Install with:
