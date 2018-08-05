@@ -159,10 +159,10 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
  * // The below are also automatically generated from requestValue() because
  * // it's an async action
  *
- * actions.valueRequestSucceeded(response);
+ * actions.valueRequestSucceeded(response); // {type: "@APPLICATION_VALUE_REQUEST_SUCCEEDED", response}
  * actions.VALUE_REQUEST_SUCCEEDED // @APPLICATION/VALUE_REQUEST_SUCCEEDED
  *
- * actions.valueRequestFailed(response);
+ * actions.valueRequestFailed(reason); // {type: "@APPLICATION/VALUE_REQUEST_FAILED", reason}
  * actions.VALUE_REQUEST_FAILED // @APPLICATION/VALUE_REQUEST_FAILED
  *
  * Object.keys(actions) // ['setValue', 'SET_VALUE',
