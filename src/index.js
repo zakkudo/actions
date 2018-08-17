@@ -114,6 +114,9 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
  * Helper class to make working with [Redux]{@link https://redux.js.org/} actions enjoyable. The code is readable,
  * with minimal surprises.
  *
+ * [![Build Status](https://travis-ci.org/zakkudo/actions.svg?branch=master)](https://travis-ci.org/zakkudo/actions)
+ * [![Coverage Status](https://coveralls.io/repos/github/zakkudo/actions/badge.svg?branch=master)](https://coveralls.io/github/zakkudo/actions?branch=master)
+ *
  * Why use this?
  *
  * - Consistancy with simplicity
