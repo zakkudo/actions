@@ -1,21 +1,36 @@
 <a name="module_Actions"></a>
 
 ## Actions
+<p>
 Helper class to make working with [Redux](https://redux.js.org/) actions enjoyable. The code is readable,
 with minimal surprises.
+</p>
 
-[![Build Status](https://travis-ci.org/zakkudo/actions.svg?branch=master)](https://travis-ci.org/zakkudo/actions)
-[![Coverage Status](https://coveralls.io/repos/github/zakkudo/actions/badge.svg?branch=master)](https://coveralls.io/github/zakkudo/actions?branch=master)
+<p>
+<a href="https://travis-ci.org/zakkudo/actions">
+    <img src="https://travis-ci.org/zakkudo/actions.svg?branch=master"
+         alt="Build Status" /></a>
+<a href="https://coveralls.io/github/zakkudo/actions?branch=master">
+    <img src="https://coveralls.io/repos/github/zakkudo/actions/badge.svg?branch=master"
+         alt="Coverage Status" /></a>
+<a href="https://snyk.io/test/github/zakkudo/actions">
+    <img src="https://snyk.io/test/github/zakkudo/actions/badge.svg"
+         alt="Known Vulnerabilities"
+         data-canonical-src="https://snyk.io/test/github/zakkudo/actions"
+         style="max-width:100%;" /></a>
+</p>
 
 Why use this?
 
-- Consistancy with simplicity
-- Automates creation of the action types by sniffing the action creators
-- It works how you expect it to.  Changing a action type will also update action creator output.
-- Automatically generates the success/failure actions for side effect actions
+<ul>
+<li>Consistancy with simplicity</li>
+<li>Automates creation of the action types by sniffing the action creators</li>
+<li>It works how you expect it to.  Changing a action type will also update action creator output.</li>
+<li>Automatically generates the success/failure actions for side effect actions
   (For libraries like [Redux-Thunk](https://github.com/reduxjs/redux-thunk),
-  [Redux-Saga](https://redux-saga.js.org/), [Redux-Observable](https://redux-observable.js.org/)...)
-- All action type strings are prefixed the namespace on contruction
+  [Redux-Saga](https://redux-saga.js.org/), [Redux-Observable](https://redux-observable.js.org/)...)</li>
+<li>All action type strings are prefixed the namespace on contruction</li>
+</ul>
 
 Install with:
 

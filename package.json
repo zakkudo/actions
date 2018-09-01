@@ -30,6 +30,7 @@
   "dependencies": {},
   "scripts": {
     "build": "scripts/build.sh",
+    "clean": "scripts/clean.sh",
     "deploy": "scripts/deploy.sh",
     "test": "scripts/test.sh",
     "cover": "scripts/cover.sh",
