@@ -2,11 +2,12 @@ language: node_js
 cache: yarn
 node_js:
   - "6"
+  - "7"
   - "8"
   - "9"
   - "10"
 install:
-    - yarn add codecov snyk
+    - yarn add codecov snyk coveralls
 script:
   - yarn cover
   - cat coverage/lcov.info | ./node_modules/.bin/coveralls
