@@ -7,7 +7,7 @@ node_js:
   - "9"
   - "10"
 install:
-    - yarn add codecov snyk coveralls
+    - yarn add --dev codecov snyk coveralls
 script:
   - yarn cover
   - cat coverage/lcov.info | ./node_modules/.bin/coveralls
