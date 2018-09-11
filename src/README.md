@@ -115,23 +115,3 @@ Object.keys(actions) // ['setValue', 'SET_VALUE',
                      //  'valueRequestSucceeded', 'VALUE_REQUEST_SUCCEEDED",
                      //  'valueRequestFailed', 'VALUE_REQUEST_FAILED']
 ```
-
-## API
-
-<a name="module_@zakkudo/actions"></a>
-
-<a name="module_@zakkudo/actions..Actions"></a>
-
-### @zakkudo/actions~Actions ⏏
-
-**Kind**: Exported class
-
-<a name="new_module_@zakkudo/actions..Actions_new"></a>
-
-#### new Actions(actionCreators, [namespace])
-
-| Param | Type | Description |
-| --- | --- | --- |
-| actionCreators | <code>Object</code> | An object containing a set of [action creators](https://redux.js.org/basics/actions#action-creators) to auto complete the types for. |
-| [namespace] | <code>String</code> | The desired namespace for the set of actions |
-
