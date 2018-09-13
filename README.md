@@ -47,6 +47,8 @@ const actions = new Actions({
 
 actions.setValue(3); // {type: "@APPLICATION/SET_VALUE", value: 3}
 actions.SET_VALUE // @APPLICATION/SET_VALUE
+
+Object.keys(actions) // ['setValue', 'SET_VALUE']
 ```
 
 ### Async action
@@ -67,11 +69,73 @@ actions.REQUEST_VALUE // @APPLICATION/REQUEST_VALUE
 
 // Because it's an asynchronous action, the succeess and failure actions are also automatically generated.
 
-actions.valueRequestSucceeded(response); // {type: "@APPLICATION_VALUE_REQUEST_SUCCEEDED", response}
+actions.valueRequestSucceeded(response); // {type: "@APPLICATION/VALUE_REQUEST_SUCCEEDED", response}
 actions.VALUE_REQUEST_SUCCEEDED // @APPLICATION/VALUE_REQUEST_SUCCEEDED
 
 actions.valueRequestFailed(reason); // {type: "@APPLICATION/VALUE_REQUEST_FAILED", reason}
 actions.VALUE_REQUEST_FAILED // @APPLICATION/VALUE_REQUEST_FAILED
+
+Object.keys(actions) // ['requestValue', 'REQUEST_VALUE',
+                     //  'valueRequestSucceeded', 'VALUE_REQUEST_SUCCEEDED",
+                     //  'valueRequestFailed', 'VALUE_REQUEST_FAILED']
+```
+
+### Override action type after contruction
+``` javascript
+const actions = new Actions({
+    setValue(value) {
+        return {
+            type: 'SET_VALUE',
+            value,
+        };
+    },
+}, 'APPLICATION');
+
+actions.SET_VALUE = 'SET_VALUE_OVERRIDE';
+
+// Automatically uses the updated action type
+actions.setValue(3); // {type: "SET_VALUE_OVERRIDE", value: 3}
+
+Object.keys(actions) // ['setValue', 'SET_VALUE']
+```
+
+### Generate custom success/failure action creators for an async action
+``` javascript
+const actions = new Actions({
+    requestValue(request) {
+        return {
+            type: 'REQUEST_VALUE',
+            request,
+        };
+    },
+    valueRequestSucceeded(response) {
+        return {
+            type: 'VALUE_REQUEST_SUCCEEDED_OVERRIDE',
+            override: response,
+        };
+    },
+    valueRequestFailed(reason) {
+        return {
+            type: 'VALUE_REQUEST_FAILED_OVERRIDE',
+            override: reason,
+        };
+    },
+}, 'APPLICATION');
+
+actions.requestValue(() => fetch('/data'));
+actions.REQUEST_VALUE // @APPLICATION/REQUEST_VALUE
+
+// Uses the overriden side effect resolutions
+
+actions.valueRequestSucceeded(response); // {type: "@APPLICATION/VALUE_REQUEST_SUCCEEDED_OVERRIDE", override}
+actions.VALUE_REQUEST_SUCCEEDED // @APPLICATION/VALUE_REQUEST_SUCCEEDED_OVERRIDE
+
+actions.valueRequestFailed(reason); // {type: "@APPLICATION/VALUE_REQUEST_FAILED_OVERRID", override}
+actions.VALUE_REQUEST_FAILED // @APPLICATION/VALUE_REQUEST_FAILED_OVERRIDE
+
+Object.keys(actions) // ['requestValue', 'REQUEST_VALUE',
+                     //  'valueRequestSucceeded', 'VALUE_REQUEST_SUCCEEDED",
+                     //  'valueRequestFailed', 'VALUE_REQUEST_FAILED']
 ```
 
 ### Full example
@@ -104,7 +168,7 @@ actions.REQUEST_VALUE // @APPLICATION/REQUEST_VALUE
 // The below are also automatically generated from requestValue() because
 // it's an async action
 
-actions.valueRequestSucceeded(response); // {type: "@APPLICATION_VALUE_REQUEST_SUCCEEDED", response}
+actions.valueRequestSucceeded(response); // {type: "@APPLICATIONnVALUE_REQUEST_SUCCEEDED", response}
 actions.VALUE_REQUEST_SUCCEEDED // @APPLICATION/VALUE_REQUEST_SUCCEEDED
 
 actions.valueRequestFailed(reason); // {type: "@APPLICATION/VALUE_REQUEST_FAILED", reason}
