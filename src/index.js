@@ -2,6 +2,8 @@
  * @module @zakkudo/actions
  */
 
+SYNTAX ERROR
+
 /**
  * @param {String} text - The text to uncapitalize the first letter of
  * @return {String} The uncapitalized version of text
