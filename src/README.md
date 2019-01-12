@@ -32,15 +32,10 @@ yarn add @zakkudo/actions
 
 ## Examples
 
-### Simple action
+### Simple action with implied type
 ``` javascript
 const actions = new Actions({
-    setValue(value) {
-        return {
-            type: 'SET_VALUE',
-            value,
-        };
-    },
+    setValue: (value) => ({value})
 }, 'APPLICATION');
 
 // Automatically generates the action type strings with a namespace
@@ -49,6 +44,23 @@ actions.setValue(3); // {type: "@APPLICATION/SET_VALUE", value: 3}
 actions.SET_VALUE // @APPLICATION/SET_VALUE
 
 Object.keys(actions) // ['setValue', 'SET_VALUE']
+```
+
+### Simple action with explicit type
+``` javascript
+const actions = new Actions({
+    setValue(value) {
+        type: 'SET_VALUE_WITH_EXPLICIT_TYPE',
+        value
+    }
+}, 'APPLICATION');
+
+// Automatically generates the action type strings with a namespace
+
+actions.setValue(3); // {type: "@APPLICATION/SET_VALUE_WITH_EXPLICIT_TYPE", value: 3}
+actions.SET_VALUE // @APPLICATION/SET_VALUE_WITH_EXPLICIT_TYPE
+
+Object.keys(actions) // ['setValue', 'SET_VALUE_WITH_EXPLICIT_TYPE']
 ```
 
 ### Async action
