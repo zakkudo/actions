@@ -87,9 +87,8 @@ function addMissingAsyncActionCreators(actionCreators) {
  * @private
 */
 function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
-    return Object.keys(actionCreators).reduce((accumulator, k) => {
-        const actionCreator = actionCreators[k];
-        const type = actionCreator().type;
+    return Object.entries(actionCreators).reduce((accumulator, [k, actionCreator]) => {
+        const type = actionCreator().type || toActionTypeName(k);
         const nameSpacedType = namespace ? `@${namespace}/${type}` : type;
         const actionTypeName = toActionTypeName(k);
 
