@@ -32,6 +32,28 @@ yarn add @zakkudo/actions
 
 ## Examples
 
+### Shortest form to create actions:
+``` javascript
+const actions = new Actions({
+    setValue: true,
+    syncValue: true,
+    requestValue: true
+});
+
+// When an action name starts with set, it will accept one argument and set a variable with the same name
+actions.setValue(3); // {type: "@APPLICATION/SET_VALUE", value: 3}
+actions.SET_VALUE // @APPLICATION/SET_VALUE
+
+// When an action name starts with request, it will accept one argument and set a variable with the name request
+// Success and failure actions will also be automatically created
+actions.requestValue(3); // {type: "@APPLICATION/REQUEST_VALUE", request: 3}
+actions.REQUEST_VALUE // @APPLICATION/REQUEST_VALUE
+
+// Otherwise, an action with no payload is created
+actions.syncValue(); // {type: "@APPLICATION/SYNC_VALUE"}
+actions.SYNC_VALUE // @APPLICATION/SYNC_VALUE
+```
+
 ### Simple action with implied type
 ``` javascript
 const actions = new Actions({
