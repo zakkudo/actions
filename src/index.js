@@ -85,9 +85,18 @@ function addMissingAsyncActionCreators(actionCreators) {
  * @param {Object} self - The object to look for the type name
  * @return {Object} The scoped aciton creators with action types on the same object
  * @private
-*/
+ */
 function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
     return Object.entries(actionCreators).reduce((accumulator, [k, actionCreator]) => {
+        if (actionCreator === true) {
+            if (k.startsWith('set') && k !== 'set') {
+                actionCreator = (value) => ({[uncapitalize(k.slice(3))]: value});
+            } else if (k.startsWith('request') && k !== 'request') {
+                actionCreator = (value) => ({'request': value});
+            } else {
+                actionCreator = () => ({});
+            }
+        }
         const type = actionCreator().type || toActionTypeName(k);
         const nameSpacedType = namespace ? `@${namespace}/${type}` : type;
         const actionTypeName = toActionTypeName(k);
@@ -99,9 +108,7 @@ function addActionTypeNamesWithScopes(actionCreators, namespace, self) {
         function scopedActionCreator(...args) {
             const action = actionCreator(...args);
 
-            if (namespace) {
-                action.type = self[actionTypeName];
-            }
+            action.type = self[actionTypeName];
 
             return action;
         }

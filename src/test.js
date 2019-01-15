@@ -18,6 +18,49 @@ describe('Actions', () => {
         });
     });
 
+    it('generates fallback when boolean for setter', () => {
+        const actions = new Actions({
+          setValue: true,
+        });
+
+        expect(actions.SET_VALUE).toEqual('SET_VALUE');
+        expect(actions.setValue(3)).toEqual({
+            type: 'SET_VALUE',
+            value: 3,
+        });
+    });
+
+    it('generates fallback when boolean for non-setter', () => {
+        const actions = new Actions({
+          syncValue: true,
+        });
+
+        expect(actions.SYNC_VALUE).toEqual('SYNC_VALUE');
+        expect(actions.syncValue(3)).toEqual({
+            type: 'SYNC_VALUE',
+        });
+    });
+
+    it('generates fallback when boolean for request', () => {
+        const actions = new Actions({
+          requestValue: true,
+        });
+
+        expect(actions.REQUEST_VALUE).toEqual('REQUEST_VALUE');
+        expect(actions.requestValue(3)).toEqual({
+            type: 'REQUEST_VALUE',
+            request: 3
+        });
+        expect(Object.keys(actions)).toEqual([
+            "valueRequestSucceeded",
+            "VALUE_REQUEST_SUCCEEDED",
+            "valueRequestFailed",
+            "VALUE_REQUEST_FAILED",
+            "requestValue",
+            "REQUEST_VALUE",
+        ]);
+    });
+
     it('applies the application namespace to the action type', () => {
         const actions = new Actions({
             setValue(value) {
